@@ -1,0 +1,62 @@
+{
+    "name": "carmelosantana/coqui-toolkit-wp-cli",
+    "description": "WP-CLI toolkit for Coqui — manage WordPress plugins, themes, users, posts, database, multisite, and more via natural language",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carmelo Santana"
+        }
+    ],
+    "keywords": [
+        "php-agents",
+        "wp-cli",
+        "wordpress",
+        "coqui",
+        "toolkit"
+    ],
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "carmelosantana/php-agents": "^0.7",
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CarmeloSantana\\CoquiToolkitWpCli\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CarmeloSantana\\CoquiToolkitWpCli\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse"
+    },
+    "extra": {
+        "php-agents": {
+            "toolkits": [
+                "CarmeloSantana\\CoquiToolkitWpCli\\WpCliToolkit"
+            ],
+            "description": "WordPress management via WP-CLI — plugins, themes, users, posts, database backup/restore, multisite, core updates, cache, rewrites, search-replace, cron, and media",
+            "credentials": {
+                "WP_CLI_PATH": "Path to your WordPress installation (e.g. /var/www/html/wordpress)",
+                "WP_CLI_SSH": "SSH target for remote WordPress (e.g. user@host:/path/to/wp) — leave empty for local installs",
+                "WP_CLI_URL": "Default site URL for multisite targeting (e.g. https://example.com) — leave empty for single-site installs"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
